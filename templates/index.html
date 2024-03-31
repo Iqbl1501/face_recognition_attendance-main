@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% include "head.html" %}
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Homepage Absensi</h1>
+        <section class="py-1">
+            <div class="row">
+                <div class="col-lg-8  offset-lg-2">
+                    <br>
+                    <img src="{{ url_for('video_feed') }}" width="100%" class="img-thumbnail">
+                </div>
+            </div>
+        </section>
+        <section class="py-1 d-flex justify-content-center">
+            <a href="/register" class="btn btn-primary" role="button">Registrasi</a>
+        </section>
+    </div>
+</body>
+
+</html>

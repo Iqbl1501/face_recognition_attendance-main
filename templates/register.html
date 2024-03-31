@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% include "head.html" %}
+</head>
+
+<body>
+    <div class="container">
+
+        <h1 class="text-center">Register Wajah</h1>
+
+        <form action="/registser/{{user_id}}" method="post" id="register_form">
+            <div class="form-group">
+                <label for="name">Nama</label>
+                <input class="form-control" id="name" name="name" placeholder="Masukan Nama">
+            </div>
+            <button id="submit" type="submit" class="btn btn-primary">Submit & Register Muka</button>
+        </form>
+    </div>
+    <script defer>
+        $("#register_form").submit(function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            $.ajax({
+                type: "POST",
+                url: '/register/{{user_id}}',
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    location.href = "/register_face/{{user_id}}"
+                },
+                error: function () {
+                    alert('Error occured');
+                    window.location.reload();
+                }
+
+            });
+        });
+    </script>
+
+</body>
+
+</html>

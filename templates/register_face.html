@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include "head.html" %}
+</head>
+
+<body>
+
+
+    <div class="container text-center">
+        <h1>Generate Dataset {{ user_id }}</h1>
+        <div class="row">
+            <div class="col-lg-8  offset-lg-2">
+                <br>
+                <img src="{{ url_for('vidfeed_dataset', user_id=user_id) }}" width="100%" class="img-thumbnail">
+            </div>
+        </div>
+        <h3>Tekan tombol Retrain jika counter sudah menujukan 40</h3>
+        <a href="/retrain" class="btn btn-primary" role="button">Relearn</a>
+    </div>
+
+    <script defer>
+        $("a[role='button']").click((e) => {
+            $(e.target).html("<div class='spinner-border text-light' role='status'><span class='sr-only'>Loading...</span></div>")
+        })
+    </script>
+
+</body>
+
+</html>
